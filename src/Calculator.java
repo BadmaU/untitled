@@ -1,4 +1,8 @@
 import java.util.Scanner;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.BufferedReader;
+import java.lang.RuntimeException;
 
 public class Calculator {
 
@@ -13,20 +17,8 @@ public class Calculator {
 
 
         System.out.print("Input ");
-        number1 = scanner.nextInt();{
-        try{
-            Scanner in = new Scanner(System.in);
-            if(number1>10){
-                throw new Exception("Число должно быть меньше 10");
-            }
-        }
-        catch(Exception ex){
-
-            System.out.println(ex.getMessage());
-        }
-        System.out.println("Программа завершена");}
-
-    number2 = scanner.nextInt();
+        number1 = scanner.nextInt();
+        number2 = scanner.nextInt();
         System.out.print("Operator");
         operation = scanner.next().charAt(0);
 
@@ -42,6 +34,8 @@ public class Calculator {
         } else if (operation == '/') {
             result = number1 / number2;
             System.out.print("Output = " + result);
+        } else if(operation != '-') {
+            throw new RuntimeException("Программа завершена");
         }
 
 
