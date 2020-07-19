@@ -34,7 +34,7 @@ public class Calculator {
         } else if (operation == '/') {
             result = number1 / number2;
             System.out.print("Output = " + result);
-        } else if(operation != '-') {
+        } else if(operation != '-','+','*','/') {
             throw new RuntimeException("Программа завершена");
         }
 
