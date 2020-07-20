@@ -1,0 +1,33 @@
+import java.util.Arrays;
+
+public class ArabicNumber {
+    static String[] ArabicNumber = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
+
+    public static boolean isInputValueIsNumber(String value) {
+        return Arrays.asList(ArabicNumber).contains(value);
+    }
+
+    public static int calculateArabicNumber(String value1, String value2, String operator) {
+        int num1 = Integer.parseInt(value1);
+        char operation = operator.charAt(0);
+        int num2 = Integer.parseInt(value2);
+        int result = 0;
+
+        switch (operation) {
+            case '+':
+                result = num1 + num2;
+                break;
+            case '-':
+                result = num1 - num2;
+                break;
+            case '*':
+                result = num1 * num2;
+                break;
+            case '/':
+                result = num1 / num2;
+            default:
+                throw new RuntimeException("Программа завершена");
+        }
+        return result;
+    }
+}
