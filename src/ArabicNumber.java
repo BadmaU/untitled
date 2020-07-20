@@ -11,7 +11,7 @@ public class ArabicNumber {
         int num1 = Integer.parseInt(value1);
         char operation = operator.charAt(0);
         int num2 = Integer.parseInt(value2);
-        int result = 0;
+        int result;
 
         switch (operation) {
             case '+':
@@ -25,9 +25,11 @@ public class ArabicNumber {
                 break;
             case '/':
                 result = num1 / num2;
+                break;
             default:
                 throw new RuntimeException("Программа завершена");
         }
         return result;
     }
 }
+
