@@ -8,37 +8,30 @@ public class Calculator {
 
 
     public static void main(String[] args) throws Exception {
-
-        Scanner scanner = new Scanner(System.in);
-        int number1;
-        int number2;
-        char operation;
-        int result;
+        Scanner in = new Scanner (System.in);
+        String calculation = in.nextLine();
 
 
-        System.out.print("Input ");
-        number1 = scanner.nextInt();
-        number2 = scanner.nextInt();
-        System.out.print("Operator");
-        operation = scanner.next().charAt(0);
+        calculation = calculation.trim();
 
-        if (operation == '+') {
-            result = number1 + number2;
-            System.out.print("Output = " + result);
-        } else if (operation == '-') {
-            result = number1 - number2;
-            System.out.print("Output = " + result);
-        } else if (operation == '*') {
-            result = number1 * number2;
-            System.out.print("Output = " + result);
-        } else if (operation == '/') {
-            result = number1 / number2;
-            System.out.print("Output = " + result);
-        } else if(operation != '-','+','*','/') {
-            throw new RuntimeException("Программа завершена");
+        String[] blocks = calculation.split(" ");
+
+        try {
+            if (ArabicNumber.isInputValueIsNumber(blocks[0]) && ArabicNumber.isInputValueIsNumber(blocks[2]) && operations.isInputOperationIsCorrect(blocks[1])) {
+                //System.out.print(blocks[0] + " " + blocks[1] + " " + blocks[2] + " = ");
+                System.out.println(ArabicNumber.calculateArabicNumber(blocks[0], blocks[2], blocks[1]));
+            } else if (RomanNumber.isInputValueIsNumber(blocks[0]) && RomanNumber.isInputValueIsNumber(blocks[2]) && operations.isInputOperationIsCorrect(blocks[1])) {
+                //System.out.print(blocks[0] + " " + blocks[1] + " " + blocks[2] + " = ");
+                if (RomanNumber.calculateRomanNumbers(blocks[0], blocks[2], blocks[1]) != null)
+                    System.out.println(RomanNumber.calculateRomanNumbers(blocks[0], blocks[2], blocks[1]));
+            }
+            else throw new Exception();
+        }
+        catch (Exception e) {
+            System.out.println("Ошибка!");
+        }
+        finally {
+            System.out.println(" Программа завершена.");
         }
 
-
-
-    }
-    }
+        in.close();
